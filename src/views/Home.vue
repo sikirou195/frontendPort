@@ -24,7 +24,7 @@ export default {
 <style scoped>
 .message {
  margin-top: 0px;
-  margin-left: 0px;
+  margin-left: 300px;
   color: black;
 }
 
