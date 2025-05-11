@@ -10,6 +10,16 @@ const api = axios.create({
     'Accept': 'application/json'
   }
 });
+// Exemple pour envoyer un message ou créer un contact
+export async function createContact(contactData) {
+  try {
+    const response = await api.post('/portofolio', contactData);
+    return response.data;
+  } catch (error) {
+    console.error('Échec de la création du contact:', error);
+    throw error;
+  }
+}
 
 // Intercepteur pour les requêtes
 api.interceptors.request.use(config => {
