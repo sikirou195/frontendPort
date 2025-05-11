@@ -1101,16 +1101,15 @@ const submitForm = async () => {
       sujet: contactForm.value.subject,
       message: contactForm.value.message
     });
-
-    // Alerte de confirmation et réinitialisation du formulaire
-    alert(`Message envoyé ! Merci ${contactForm.value.name}`);
-    contactForm.value = { name: '', email: '', subject: '', message: '' };
+    
+    // Vous pouvez ajouter un message de confirmation ou réinitialiser le formulaire après l'envoi réussi
+    console.log("Formulaire envoyé avec succès !");
   } catch (error) {
-    // Gérer l'erreur si quelque chose ne va pas
-    console.error('Erreur lors de l\'envoi du message :', error);
-    alert("Une erreur s'est produite. Veuillez réessayer.");
+    console.error("Erreur lors de l'envoi du formulaire", error);
+    // Vous pouvez afficher un message d'erreur à l'utilisateur ici
   }
 };
+
 const isDarkTheme = ref(false);
 const toggleTheme = () => {
   isDarkTheme.value = !isDarkTheme.value;
