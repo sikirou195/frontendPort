@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Créer une instance axios configurée
 const api = axios.create({
-  baseURL: 'https://ton-backend-railway-url/portofolio',
+  baseURL: 'https://victorious-quietude-production.up.railway.app',
   timeout: 30000, // 30 secondes pour tenir compte des services Render en veille
   headers: {
     'Content-Type': 'application/json',
