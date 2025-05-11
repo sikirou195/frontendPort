@@ -1,272 +1,395 @@
-<script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-
-// URL de base de l'API avec possibilité d'utiliser une variable d'environnement
-const API_URL = import.meta.env.VITE_API_URL || 'https://backendport-tsol.onrender.com';
-
-// État pour les contacts et le chargement
-const contacts = ref([]);
-const isLoading = ref(true);
-const error = ref(null);
-
-// Configuration axios pour améliorer la fiabilité
-const axiosConfig = {
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-  timeout: 15000 // 15 secondes pour tenir compte des services Render qui peuvent être en veille
-};
-
-// Fonction pour récupérer les contacts
-const fetchContacts = async () => {
-  isLoading.value = true;
-  error.value = null;
-  
-  try {
-    console.log('Récupération des contacts depuis:', `${API_URL}/portofolio`);
-    const response = await axios.get(`${API_URL}/portofolio`, axiosConfig);
-    console.log('Données reçues:', response.data);
-    contacts.value = response.data;
-  } catch (err) {
-    handleError(err, 'chargement des contacts');
-  } finally {
-    isLoading.value = false;
-  }
-};
-
-// Fonction pour supprimer un contact
-const deleteContact = async (id) => {
-  if (!confirm("Voulez-vous vraiment supprimer ce message ?")) return;
-  
-  try {
-    console.log('Suppression du contact:', id);
-    // Correction de la syntaxe pour l'URL de suppression
-    await axios.delete(`${API_URL}/portofolio/${id}`, axiosConfig);
-    console.log('Contact supprimé avec succès');
-    
-    // Mettre à jour l'état local après suppression
-    contacts.value = contacts.value.filter(contact => contact.id !== id);
-  } catch (err) {
-    handleError(err, 'suppression du contact');
-  }
-};
-
-// Fonction de gestion des erreurs améliorée
-const handleError = (error, action) => {
-  console.error(`Erreur lors de la ${action}:`, error);
-  
-  if (error.response) {
-    // Le serveur a répondu avec un code d'erreur
-    console.error('Détails de la réponse serveur:', error.response.data);
-    console.error('Code détat HTTP:', error.response.status);
-    error.value = `Erreur serveur (${error.response.status}): ${error.response.data.message || 'Veuillez réessayer.'}`;
-  } else if (error.request) {
-    // La requête a été envoyée mais pas de réponse reçue
-    console.error('Aucune réponse reçue:', error.request);
-    error.value = 'Le serveur ne répond pas. Il est possible quil soit en cours de démarrage (veille Render) ou indisponible.';
-  } else {
-    // Erreur lors de la configuration de la requête
-    console.error('Erreur de requête:', error.message);
-    error.value = `Erreur: ${error.message}`;
-  }
-};
-
-// Charger les contacts au montage du composant
-onMounted(() => {
-  fetchContacts();
-});
-</script>
-
 <template>
-  <div class="contacts-container">
-    <h2 class="contacts-title">Messages reçus</h2>
-    
-    <!-- États de chargement et d'erreur -->
-    <div v-if="isLoading" class="loading-state">
-      <p>Chargement des messages...</p>
-      <div class="loading-spinner"></div>
-    </div>
-    
-    <div v-else-if="error" class="error-message">
-      <p>{{ error }}</p>
-      <button @click="fetchContacts" class="retry-button">Réessayer</button>
-    </div>
-    
-    <!-- Liste des contacts -->
-    <div v-else-if="contacts.length > 0" class="contacts-list">
-      <div v-for="contact in contacts" :key="contact.id" class="contact-card">
-        <div class="contact-header">
-          <h3>{{ contact.nom }}</h3>
-          <span class="contact-email">{{ contact.email }}</span>
+    <div class="contact-list-container">
+      <div class="header-section">
+        <div class="header-decoration">
+          <div class="header-line"></div>
+          <div class="header-icon">✉️</div>
+          <div class="header-line"></div>
         </div>
-        
-        <div class="contact-content">
-          <h4>{{ contact.sujet }}</h4>
-          <p>{{ contact.message }}</p>
+        <h1>Messages reçus</h1>
+        <p class="subtitle">Centre de messagerie</p>
+      </div>
+      
+      <div v-if="contacts.length === 0" class="empty-state">
+        <div class="empty-animation">
+          <div class="envelope">📩</div>
         </div>
-        
-        <div class="contact-actions">
-          <button @click="deleteContact(contact.id)" class="delete-button">
-            Supprimer
-          </button>
+        <p>Aucun message pour le moment.</p>
+        <p class="empty-subtitle">Les nouveaux messages apparaîtront ici</p>
+      </div>
+      
+      <div v-else class="messages-container">
+        <div class="message-card" v-for="contact in contacts" :key="contact.id">
+          <div class="message-header">
+            <div class="avatar">{{ contact.nom.charAt(0).toUpperCase() }}</div>
+            <div class="header-info">
+              <h3>{{ contact.nom }}</h3>
+              <span class="timestamp">Aujourd'hui</span>
+            </div>
+          </div>
+          
+          <div class="message-body">
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div class="info-content">
+                <span class="info-label">Email</span>
+                <span class="info-value">{{ contact.email }}</span>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">📌</div>
+              <div class="info-content">
+                <span class="info-label">Sujet</span>
+                <span class="info-value">{{ contact.sujet }}</span>
+              </div>
+            </div>
+            
+            <div class="message-content">
+              <div class="message-icon">💬</div>
+              <div class="message-text-container">
+                <span class="message-label">Message</span>
+                <p class="message-text">{{ contact.message }}</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="message-footer">
+            <button class="action-button delete" @click="deleteContact(contact.id)">Supprimer</button>
+
+            <div class="action-group">
+              <button class="action-button reply">Répondre</button>
+              <button class="action-button archive">Archiver</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    
-    <!-- Message si aucun contact -->
-    <div v-else class="no-contacts">
-      <p>Aucun message reçu pour le moment.</p>
-    </div>
-  </div>
-</template>
+  </template>
+  
+  <script setup>
+  import { ref, onMounted } from 'vue';
+  import axios from 'axios';
+  
+  const contacts = ref([]);
+  
+  const fetchContacts = async () => {
+    try {
+      const response = await axios.get('https://backendport-tsol.onrender.com/portofolio');
+      contacts.value = response.data;
+    } catch (error) {
+      console.error("Erreur lors du chargement des contacts :", error);
+    }
+  };
+  const deleteContact = async (id) => {
+  if (confirm("Voulez-vous vraiment supprimer ce message ?")) {
+    try {
+      await axios.delete(`'https://backendport-tsol.onrender.com/portofolio'/${id}`);
+      contacts.value = contacts.value.filter(contact => contact.id !== id);
+    } catch (error) {
+      console.error("Erreur lors de la suppression :", error);
+    }
+  }
+};
 
-<style scoped>
-.contacts-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.contacts-title {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: #333;
-  border-bottom: 2px solid #673ab7;
-  padding-bottom: 0.5rem;
-}
-
-.loading-state {
-  text-align: center;
-  padding: 2rem;
-}
-
-.loading-spinner {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(103, 58, 183, 0.1);
-  border-radius: 50%;
-  border-top-color: #673ab7;
-  animation: spin 1s linear infinite;
-  margin-top: 1rem;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.error-message {
-  background-color: #ffebee;
-  color: #c62828;
-  padding: 1rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  border: 1px solid #ef9a9a;
-}
-
-.retry-button {
-  background-color: #673ab7;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  cursor: pointer;
-}
-
-.contacts-list {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.contact-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.contact-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.contact-header {
-  padding: 1rem;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #eee;
-}
-
-.contact-header h3 {
-  margin: 0;
-  color: #333;
-}
-
-.contact-email {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 0.25rem;
-  display: block;
-}
-
-.contact-content {
-  padding: 1rem;
-}
-
-.contact-content h4 {
-  margin-top: 0;
-  color: #444;
-}
-
-.contact-content p {
-  color: #555;
-  line-height: 1.5;
-}
-
-.contact-actions {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0.75rem 1rem;
-  background-color: #f9f9f9;
-  border-top: 1px solid #eee;
-}
-
-.delete-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.delete-button:hover {
-  background-color: #d32f2f;
-}
-
-.no-contacts {
-  text-align: center;
-  color: #666;
-  padding: 3rem 1rem;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-}
-
-@media (max-width: 768px) {
-  .contacts-title {
+  
+  onMounted(() => {
+    fetchContacts();
+  });
+  </script>
+  
+  <style scoped>
+  .contact-list-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    color: #2d3748;
+    text-align: center;
+  }
+  
+  .header-section {
+    margin-bottom: 3rem;
+  }
+  
+  .header-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .header-line {
+    height: 2px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, #805ad5, transparent);
+  }
+  
+  .header-icon {
     font-size: 1.5rem;
+    margin: 0 1rem;
   }
   
-  .contact-header {
-    padding: 0.75rem;
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin: 0.5rem 0;
+    letter-spacing: -0.5px;
   }
   
-  .contact-content {
-    padding: 0.75rem;
+  .subtitle {
+    font-size: 1.1rem;
+    color: #718096;
+    font-weight: 400;
   }
-}
-</style>
+  
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background-color: #f7fafc;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  }
+  
+  .empty-animation {
+    margin-bottom: 2rem;
+  }
+  
+  .envelope {
+    font-size: 5rem;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .empty-state p {
+    font-size: 1.25rem;
+    color: #4a5568;
+    font-weight: 600;
+    margin: 0.5rem 0;
+  }
+  
+  .empty-subtitle {
+    font-size: 1rem !important;
+    color: #a0aec0 !important;
+    font-weight: 400 !important;
+  }
+  
+  .messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .message-card {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    transition: all 0.3s ease;
+    text-align: left;
+  }
+  
+  .message-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+  
+  .message-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .header-info {
+    flex: 1;
+  }
+  
+  .message-header h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+  
+  .timestamp {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+  
+  .message-body {
+    padding: 1.5rem;
+    background-color: #fff;
+  }
+  
+  .info-item {
+    display: flex;
+    margin-bottom: 1.25rem;
+    align-items: flex-start;
+  }
+  
+  .info-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #EBF4FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .info-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-label {
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  
+  .info-value {
+    font-size: 1rem;
+    color: #2d3748;
+    word-break: break-word;
+  }
+  
+  .message-content {
+    display: flex;
+    margin-top: 1.5rem;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  
+  .message-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #FEF5FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .message-text-container {
+    flex: 1;
+  }
+  
+  .message-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .message-text {
+    margin: 0;
+    line-height: 1.6;
+    color: #4a5568;
+    font-size: 1rem;
+  }
+  
+  .message-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f8fafc;
+    border-top: 1px solid #edf2f7;
+  }
+  
+  .action-group {
+    display: flex;
+  }
+  
+  .action-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 0.75rem;
+  }
+  
+  .reply {
+    background-color: #667eea;
+    color: white;
+  }
+  
+  .reply:hover {
+    background-color: #5a67d8;
+  }
+  
+  .archive {
+    background-color: #edf2f7;
+    color: #4a5568;
+  }
+  
+  .archive:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .delete {
+    background-color: #FED7D7;
+    color: #E53E3E;
+    margin-left: 0;
+  }
+  
+  .delete:hover {
+    background-color: #FEB2B2;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-list-container {
+      padding: 1.5rem;
+      margin: 1.5rem auto;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .message-card {
+      max-width: 100%;
+    }
+    
+    .header-line {
+      width: 50px;
+    }
+  }
+  </style>
