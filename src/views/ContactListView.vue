@@ -75,7 +75,7 @@
   
   const fetchContacts = async () => {
     try {
-      const response = await axios.get('https://victorious-quietude-production.up.railway.app');
+      const response = await axios.get('https://victorious-quietude-production.up.railway.app/portofolio');
 
       contacts.value = response.data;
     } catch (error) {
@@ -85,7 +85,9 @@
   const deleteContact = async (id) => {
   if (confirm("Voulez-vous vraiment supprimer ce message ?")) {
     try {
-      await axios.delete(`'https://victorious-quietude-production.up.railway.app'/${id}`);
+     // ✅ Bon
+await axios.delete(`https://victorious-quietude-production.up.railway.app/${id}`);
+
       contacts.value = contacts.value.filter(contact => contact.id !== id);
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
