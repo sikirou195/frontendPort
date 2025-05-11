@@ -75,7 +75,7 @@
   
   const fetchContacts = async () => {
     try {
-      const response = await axios.get('https://backendport-tsol.onrender.com/portofolio');
+      const response = await axios.get('https://ton-backend-railway-url/portofolio');
       contacts.value = response.data;
     } catch (error) {
       console.error("Erreur lors du chargement des contacts :", error);
@@ -84,7 +84,7 @@
   const deleteContact = async (id) => {
   if (confirm("Voulez-vous vraiment supprimer ce message ?")) {
     try {
-      await axios.delete(`'https://backendport-tsol.onrender.com/portofolio'/${id}`);
+      await axios.delete(`'https://ton-backend-railway-url/portofolio'/${id}`);
       contacts.value = contacts.value.filter(contact => contact.id !== id);
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
