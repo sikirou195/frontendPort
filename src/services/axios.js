@@ -1,24 +1,11 @@
-// src/services/axios.js
-import axiosInstance from './axiosInstance';
+// src/services/axiosInstance.js
+import axios from 'axios';
 
-// Exemple de fonction pour envoyer une requête POST à /etudiant
-export const createEtudiant = async (etudiantData) => {
-  try {
-    const response = await axiosInstance.post('/portofolio', etudiantData);
-    return response.data;
-  } catch (error) {
-    console.error('Erreur lors de la création de l’étudiant :', error);
-    throw error;
-  }
-};
+const axiosInstance = axios.create({
+  baseURL: 'https://victorious-quietude-production.up.railway.app', // URL Railway ici
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
-// Exemple de fonction pour récupérer la liste des étudiants
-export const getEtudiants = async () => {
-  try {
-    const response = await axiosInstance.get('/portofolio');
-    return response.data;
-  } catch (error) {
-    console.error('Erreur lors de la récupération des étudiants :', error);
-    throw error;
-  }
-};
+export default axiosInstance;

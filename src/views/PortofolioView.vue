@@ -1096,7 +1096,7 @@ const submitForm = async () => {
   try {
     // Envoi des données du formulaire à l'API
 await axios.post('https://victorious-quietude-production.up.railway.app/portofolio', {
-      nom: contactForm.value.name,
+      name: contactForm.value.name,
       email: contactForm.value.email,
       sujet: contactForm.value.subject,
       message: contactForm.value.message
