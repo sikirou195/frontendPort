@@ -938,7 +938,8 @@
       <div class="container about-container flex flex-col md:flex-row items-center gap-8 py-12">
         <div class="about-img w-full md:w-1/2">
           <p> <strong><h3> OTOROU Sikirou</h3> </strong></p>
-          <img src="@/assets/sikirou1.jpg" alt="Mon portrait" class="rounded-lg shadow-lg"/>
+          <img src="@/assets/sikirou1.jpg" alt="Mon portrait" class="about-photo rounded-lg shadow-lg"/>
+
         </div>
         <div class="about-content w-full md:w-1/2">
           <h2 class="section-title text-4xl font-bold mb-4">À Propos de Moi</h2>
@@ -1252,3 +1253,18 @@ onMounted(() => {
   });
 });
 </script>
+<style>
+.about-photo {
+  width: 280px;   /* tu peux ajuster la taille ici */
+  height: auto;   /* garde les proportions */
+  object-fit: cover; /* ou contain selon ton besoin */
+  max-width: 100%; /* évite de dépasser sur mobile */
+}
+@media (max-width: 768px) {
+  .about-photo {
+    width: 100%;
+    height: auto;
+  }
+}
+
+</style>
