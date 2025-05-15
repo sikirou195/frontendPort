@@ -1,119 +1,104 @@
 <template>
-    <!-- Section CV et Lettre -->
-    <section class="documents-section">
-      <div class="documents-container">
-        <div class="section-header">
-          <div class="header-decoration">
-            <div class="header-line"></div>
-            <div class="header-icon">📄</div>
-            <div class="header-line"></div>
-          </div>
-          <h2>Mes realisations Photoshop</h2>
-          <p class="subtitle">Les designes professionnel</p>
+  <section class="documents-section">
+    <div class="documents-container">
+      <div class="section-header">
+        <div class="header-decoration">
+          <div class="header-line"></div>
+          <div class="header-icon">🎨</div>
+          <div class="header-line"></div>
         </div>
-  
-        <div class="documents-grid">
-          <!-- CV Card -->
-          <div class="document-card">
-            <div class="document-header">
-              <div class="document-icon">📄</div>
-              <h3>Curriculum Vitae</h3>
-            </div>
-            <div class="document-preview">
-              <iframe src="/files/cv.pdf" class="preview-frame" title="CV"></iframe>
-            </div>
-            <div class="document-actions">
-              <button class="action-button view" @click="openCVModal">Voir en plein écran</button>
-              <a href="/files/cv.pdf" download class="action-button download">Télécharger</a>
-            </div>
-          </div>
-  
-          <!-- Lettre de Motivation Card -->
-          <div class="document-card" id="lettre-motivation-card">
-            <div class="document-header">
-              <div class="document-icon">📝</div>
-              <h3>Lettre de Motivation</h3>
-            </div>
-            <div class="document-preview">
-              <iframe src="/assets/sikirou1.jpg" class="preview-frame" title="Affiche"></iframe>
-            </div>
-            <div class="document-actions">
-              <button class="action-button view" @click="openLettreModal">Voir en plein écran</button>
-              <a href="/assets/sikirou1.jpg" download class="action-button download">Télécharger</a>
-            </div>
-          </div>
-        </div>
+        <h2>Mes Réalisations Photoshop</h2>
+        <p class="subtitle">Designs professionnels réalisés avec Photoshop</p>
       </div>
-    </section>
-  
-    <!-- Modal pour le CV -->
-    <div class="modal" :class="{ 'show-modal': isModalCVOpen }">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4>Mon CV</h4>
-          <span class="close-button" @click="closeModal">&times;</span>
-        </div>
-        <div class="modal-body">
-          <iframe v-if="isModalCVOpen" src="/files/cv.pdf" class="modal-iframe" title="CV complet"></iframe>
+
+      <div class="documents-grid">
+        <div
+          v-for="(image, index) in images"
+          :key="index"
+          class="document-card"
+        >
+          <div class="document-header">
+            <div class="document-icon">🖼️</div>
+            <h3>Affiche {{ index + 1 }}</h3>
+          </div>
+          <div class="document-preview">
+            <img
+              :src="image.src"
+              class="preview-frame"
+              :alt="'Affiche Photoshop ' + (index + 1)"
+              @click="openModal(image.src)"
+              style="object-fit: cover"
+            />
+          </div>
+          <div class="document-actions">
+            <button class="action-button view" @click="openModal(image.src)">
+              Voir en plein écran
+            </button>
+            <a :href="image.src" download class="action-button download">
+              Télécharger
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  
-    <!-- Modal pour la lettre de motivation -->
-    <div class="modal" :class="{ 'show-modal': isModalLettreOpen }">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4>Ma Lettre de Motivation</h4>
-          <span class="close-button" @click="closeModal">&times;</span>
-        </div>
-        <div class="modal-body">
-          <iframe v-if="isModalLettreOpen" src="/files/lettre_motivation.pdf" class="modal-iframe" title="Lettre complète"></iframe>
-        </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" :class="{ 'show-modal': isModalOpen }">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Affiche en plein écran</h4>
+        <span class="close-button" @click="closeModal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <img v-if="modalImage" :src="modalImage" class="modal-iframe" alt="Affiche" />
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  
-  // États pour les modals
-  const isModalCVOpen = ref(false);
-  const isModalLettreOpen = ref(false);
-  
-  // Fonctions pour ouvrir les modals
-  function openCVModal() {
-    isModalCVOpen.value = true;
-    document.body.style.overflow = 'hidden'; // Empêcher le défilement du corps de la page
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const isModalOpen = ref(false)
+const modalImage = ref(null)
+
+// Remplace les chemins ici par les bons fichiers dans /public/assets/
+const images = ref([
+  { src: '/assets/photoshop1.jpg' },
+  { src: '/assets/photoshop2.jpg' },
+  { src: '/assets/photoshop3.jpg' }
+])
+
+function openModal(src) {
+  modalImage.value = src
+  isModalOpen.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+function closeModal() {
+  modalImage.value = null
+  isModalOpen.value = false
+  document.body.style.overflow = 'auto'
+}
+
+function handleEscapeKey(event) {
+  if (event.key === 'Escape') {
+    closeModal()
   }
-  
-  function openLettreModal() {
-    isModalLettreOpen.value = true;
-    document.body.style.overflow = 'hidden'; // Empêcher le défilement du corps de la page
-  }
-  
-  // Fonction pour fermer n'importe quel modal ouvert
-  function closeModal() {
-    isModalCVOpen.value = false;
-    isModalLettreOpen.value = false;
-    document.body.style.overflow = 'auto'; // Restaurer le défilement du corps de la page
-  }
-  
-  // Fermer le modal en cliquant sur la touche Échap
-  function handleEscapeKey(event) {
-    if (event.key === 'Escape') {
-      closeModal();
-    }
-  }
-  
-  // Ajoute l'écouteur d'événements pour la touche Échap
-  window.addEventListener('keydown', handleEscapeKey);
-  
-  // Nettoyage de l'écouteur d'événements lors du démontage du composant
-  import { onUnmounted } from 'vue';
-  onUnmounted(() => {
-    window.removeEventListener('keydown', handleEscapeKey);
-  });
-  </script>
+}
+
+window.addEventListener('keydown', handleEscapeKey)
+import { onUnmounted } from 'vue'
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleEscapeKey)
+})
+</script>
+
+<style scoped>
+/* tu peux garder tout ton style précédent tel quel */
+</style>
+
   
 <style scoped>
   .documents-section {
