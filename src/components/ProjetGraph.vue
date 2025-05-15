@@ -65,8 +65,8 @@ const modalImage = ref(null)
 
 // Remplace les chemins ici par les bons fichiers dans /public/assets/
 const images = ref([
-  { src: '/assets/photoshop1.jpg' },
-  { src: '/assets/photoshop2.jpg' },
+  { src: '/assets/sikirou1.jpg' },
+  { src: '/assets/sikirou.jpg' },
   { src: '/assets/photoshop3.jpg' }
 ])
 
