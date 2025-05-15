@@ -64,9 +64,9 @@
 import { ref, onUnmounted, onMounted } from 'vue'
 
 // ⚠️ Assure-toi que ces images existent bien dans src/assets/
-import image1 from '@/assets/sikirou1.jpg'
-import image2 from '@/assets/sikirou.jpg'
-import image3 from '@/assets/logo.png'
+import image1 from '@/assets/affiche.jpg'
+import image2 from '@/assets/affiche3.jpg'
+import image3 from '@/assets/affiche6.jpg'
 
 // Données des images avec titres
 const images = [
