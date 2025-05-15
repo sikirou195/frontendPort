@@ -211,7 +211,14 @@ onUnmounted(() => {
     height: 100%;
     border: none;
   }
-  
+  .modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
   .document-actions {
     display: flex;
     padding: 1rem;
