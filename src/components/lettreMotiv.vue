@@ -115,7 +115,7 @@
   });
   </script>
   
-  <style scoped>
+<style scoped>
   .documents-section {
     padding: 4rem 2rem;
     background-color: #f9fafb;
