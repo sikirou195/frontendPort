@@ -68,7 +68,7 @@ export default {
   font-size: 2.8rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #222;
+  color: #f1efef;
 }
 
 .section-subtitle {
@@ -124,8 +124,8 @@ export default {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background: rgba(252, 250, 250, 0.6);
+  color: #0e0d0d;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -145,6 +145,6 @@ export default {
 
 .overlay p {
   font-size: 0.95rem;
-  color: #ddd;
+  color: #0e0d0d;
 }
 </style>
