@@ -1,5 +1,5 @@
 <template>
-  <section class="documents-section">
+  <section id="projet" class="documents-section">
     <div class="documents-container">
       <div class="section-header">
         <div class="header-decoration">
@@ -135,7 +135,7 @@ onUnmounted(() => {
   padding: 5rem 2rem;
   background-color: #f0f4f8;
   background-image: 
-    radial-gradient(circle at 25% 25%, rgba(79, 70, 229, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 25% 25%, rgba(211, 211, 216, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
 }
 
