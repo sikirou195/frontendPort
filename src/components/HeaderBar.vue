@@ -35,7 +35,7 @@ const navItems = ref([
   { id: 'about', text: 'À Propos', link: '#about' },
   { id: 'skills', text: 'Compétences', link: '#skills' },
   { id: 'projects', text: 'Projets', link: '#projects' },
-  { id: 'projet', text: 'projet', link: '#projet' },
+  { id: 'projet', text: 'projet Graphisme', link: '#projet' },
   { id: 'lettre-motivation-card', text: 'Mon CV et LM', link: '#lettre-motivation-card' },
   { id: 'education', text: 'Parcours', link: '#education' },
   { id: 'contact', text: 'Contact', link: '#contact' }
