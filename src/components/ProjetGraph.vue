@@ -58,30 +58,39 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onUnmounted } from 'vue'
 
+// ⚠️ Assure-toi que ces images existent bien dans src/assets/
+import image1 from '@/assets/sikirou1.jpg'
+import image2 from '@/assets/sikirou.jpg'
+import image3 from '@/assets/photoshop3.jpg'
+
+// Données des images
+const images = [
+  { src: image1 },
+  { src: image2 },
+  { src: image3 }
+]
+
+// État de la modale
 const isModalOpen = ref(false)
 const modalImage = ref(null)
 
-// Remplace les chemins ici par les bons fichiers dans /public/assets/
-const images = ref([
-  { src: '/assets/sikirou1.jpg' },
-  { src: '/assets/sikirou.jpg' },
-  { src: '/assets/photoshop3.jpg' }
-])
-
+// Ouvre la modale avec l'image sélectionnée
 function openModal(src) {
   modalImage.value = src
   isModalOpen.value = true
   document.body.style.overflow = 'hidden'
 }
 
+// Ferme la modale
 function closeModal() {
   modalImage.value = null
   isModalOpen.value = false
   document.body.style.overflow = 'auto'
 }
 
+// Gère la touche "Échap" pour fermer
 function handleEscapeKey(event) {
   if (event.key === 'Escape') {
     closeModal()
@@ -89,7 +98,7 @@ function handleEscapeKey(event) {
 }
 
 window.addEventListener('keydown', handleEscapeKey)
-import { onUnmounted } from 'vue'
+
 onUnmounted(() => {
   window.removeEventListener('keydown', handleEscapeKey)
 })
