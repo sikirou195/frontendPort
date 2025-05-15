@@ -1092,7 +1092,7 @@ import postesImage from '@/assets/postes.png';
 import axios from 'axios';
 import LettreMotiv from '@/components/lettreMotiv.vue';
 import ProjetGraph from '@/components/ProjetGraph.vue';
-
+import affiche8Image from '@/assets/affiche8.jpg';
 const contactForm = ref({ name: '', email: '', subject: '', message: '' });
 
 // Fonction pour envoyer le formulaire de contact à l'API NestJS
@@ -1152,7 +1152,7 @@ const projects = ref([
     id: 1,
     title: "ESAYCOLLAB",
     description: "Application web de gestion des tacches collaboratives,c'etais le projet de fin d'etude academique cycle3",
-    image: "/images/dashboard.png",
+    image: affiche8Image,
     category: "fullstack",
     demoLink: "#",
     codeLink: "https://github.com/ton-utilisateur/dashboard-ecommerce",
