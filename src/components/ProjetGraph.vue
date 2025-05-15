@@ -1,5 +1,5 @@
 <template>
-  <section id="photoshop" class="section bg-white">
+  <section id="photoshop" class="section">
     <div class="container">
       <h2 class="section-title">Mes Réalisations Photoshop</h2>
       <p class="section-subtitle">
@@ -55,25 +55,26 @@ export default {
 <style scoped>
 .section {
   padding: 60px 20px;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
+  color: #000000;
 }
 
 .section-title {
   font-size: 2.8rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #f1efef;
+  color: #000000;
 }
 
 .section-subtitle {
   font-size: 1.15rem;
-  color: #666;
+  color: #000000;
   margin-bottom: 40px;
   max-width: 700px;
   margin-left: auto;
@@ -89,7 +90,7 @@ export default {
 .gallery-item {
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(218, 216, 216, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.6s ease forwards;
@@ -124,8 +125,8 @@ export default {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(252, 250, 250, 0.6);
-  color: #f3e6e6;
+  background: rgba(255, 255, 255, 0.8);
+  color: #000000;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -145,6 +146,5 @@ export default {
 
 .overlay p {
   font-size: 0.95rem;
-  color: #f5f1f1;
 }
 </style>
