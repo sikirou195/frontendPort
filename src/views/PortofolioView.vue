@@ -988,7 +988,7 @@
     <!-- Projects Section -->
     <section id="projects" class="projects section bg-white">
       <div class="container py-12">
-        <h2 class="section-title text-4xl font-bold text-center mb-4">Mes Projets</h2>
+        <h2 class="section-title text-4xl font-bold text-center mb-4">Mes Projets web</h2>
         <p class="section-subtitle text-center mb-8">Découvrez mes réalisations et applications développées</p>
         <div class="projects-filter flex justify-center mb-6 space-x-4">
           <button
@@ -1014,6 +1014,9 @@
           </div>
         </div>
       </div>
+    </section>
+    <section>
+      <ProjetGraph/>
     </section>
 <!-- CV & Lettre de Motivation Section -->
 <!-- Section CV et Lettre -->
@@ -1088,6 +1091,7 @@ import crud1Image from '@/assets/crud1.png';
 import postesImage from '@/assets/postes.png';
 import axios from 'axios';
 import LettreMotiv from '@/components/lettreMotiv.vue';
+import ProjetGraph from '@/components/ProjetGraph.vue';
 
 const contactForm = ref({ name: '', email: '', subject: '', message: '' });
 
