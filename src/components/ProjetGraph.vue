@@ -13,7 +13,7 @@
       </div>
 
       <div class="gallery-grid">
-        <!-- Gallerie de projets Photoshop -->
+        <!-- Galerie de projets Photoshop -->
         <div v-for="(projet, index) in projetsPhotoshop" :key="index" class="gallery-item">
           <div class="gallery-image-container">
             <img :src="projet.image" :alt="projet.titre" class="gallery-image" />
@@ -36,7 +36,7 @@
   <div class="modal" :class="{ 'show-modal': isModalPhotoOpen }">
     <div class="modal-content photo-modal-content">
       <div class="modal-header">
-        <h4>{{ selectedProject ? selectedProject.titre : '' }}</h4>
+        <h4>{{ selectedProject?.titre }}</h4>
         <span class="close-button" @click="closeModal">&times;</span>
       </div>
       <div class="modal-body photo-modal-body">
@@ -46,9 +46,9 @@
           <button class="nav-button next-button" @click="nextProject">▶</button>
         </div>
         <div class="photo-details">
-          <p class="photo-description">{{ selectedProject ? selectedProject.description : '' }}</p>
+          <p class="photo-description">{{ selectedProject?.description }}</p>
           <div class="photo-tags">
-            <span v-for="(tag, i) in selectedProject ? selectedProject.tags : []" :key="i" class="tag">{{ tag }}</span>
+            <span v-for="(tag, i) in selectedProject?.tags || []" :key="i" class="tag">{{ tag }}</span>
           </div>
         </div>
       </div>
@@ -57,13 +57,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
 
-// États pour le modal
 const isModalPhotoOpen = ref(false);
 const selectedProject = ref(null);
 
-// Liste des projets Photoshop
 const projetsPhotoshop = ref([
   {
     titre: "Manipulation Créative",
@@ -103,27 +101,23 @@ const projetsPhotoshop = ref([
   }
 ]);
 
-// Fonction pour ouvrir le modal photo
 function openPhotoModal(index) {
   selectedProject.value = projetsPhotoshop.value[index];
   isModalPhotoOpen.value = true;
   document.body.style.overflow = 'hidden';
 }
 
-// Fonction pour fermer le modal
 function closeModal() {
   isModalPhotoOpen.value = false;
-  document.body.style.overflow = 'auto'; // Restaurer le défilement du corps de la page
+  document.body.style.overflow = 'auto';
 }
 
-// Fermer le modal en cliquant sur la touche Échap
 function handleEscapeKey(event) {
   if (event.key === 'Escape') {
     closeModal();
   }
 }
 
-// Navigation entre les projets dans le modal
 function nextProject() {
   if (!selectedProject.value) return;
   const currentIndex = projetsPhotoshop.value.findIndex(p => p.titre === selectedProject.value.titre);
@@ -138,11 +132,7 @@ function prevProject() {
   selectedProject.value = projetsPhotoshop.value[prevIndex];
 }
 
-// Ajoute l'écouteur d'événements pour la touche Échap
 window.addEventListener('keydown', handleEscapeKey);
-
-// Nettoyage de l'écouteur d'événements lors du démontage du composant
-import { onUnmounted } from 'vue';
 onUnmounted(() => {
   window.removeEventListener('keydown', handleEscapeKey);
 });
