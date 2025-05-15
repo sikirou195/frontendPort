@@ -96,12 +96,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* tu peux garder tout ton style précédent tel quel */
-</style>
-
-  
-<style scoped>
-  .documents-section {
+.documents-section {
     padding: 4rem 2rem;
     background-color: #f9fafb;
   }
@@ -347,5 +342,6 @@ onUnmounted(() => {
       width: 60px;
     }
   }
-  </style>
+</style>
+
   
