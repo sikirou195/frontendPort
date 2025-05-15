@@ -89,7 +89,7 @@ export default {
 .gallery-item {
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(218, 216, 216, 0.08);
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.6s ease forwards;
@@ -125,7 +125,7 @@ export default {
   position: absolute;
   inset: 0;
   background: rgba(252, 250, 250, 0.6);
-  color: #0e0d0d;
+  color: #f3e6e6;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -145,6 +145,6 @@ export default {
 
 .overlay p {
   font-size: 0.95rem;
-  color: #0e0d0d;
+  color: #f5f1f1;
 }
 </style>
