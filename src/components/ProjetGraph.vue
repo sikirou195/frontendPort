@@ -67,12 +67,17 @@ import { ref, onUnmounted, onMounted } from 'vue'
 import image1 from '@/assets/affiche.jpg'
 import image2 from '@/assets/affiche3.jpg'
 import image3 from '@/assets/affiche6.jpg'
-
+import image4 from '@/assets/affiche2.jpg'
+import image5 from '@/assets/affiche6.jpg'
+import image6 from '@/assets/affiche7.jpg'
 // Données des images avec titres
 const images = [
   { src: image1 },
   { src: image2 },
-  { src: image3 }
+  { src: image3 },
+   { src: image4 },
+  { src: image5 },
+  { src: image6 }
 ]
 
 // État de la modale

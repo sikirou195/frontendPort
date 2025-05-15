@@ -938,11 +938,10 @@
       <div class="container about-container flex flex-col md:flex-row items-center gap-8 py-12">
         <div class="about-img w-full md:w-1/2">
           <p> <strong><h3> OTOROU Sikirou</h3> </strong></p>
-          <img src="@/assets/sikirou1.jpg" alt="Mon portrait" class="about-photo rounded-lg shadow-lg"/>
-
+          <img src="@/assets/sikirou1.jpg" alt="Mon portrait" class="rounded-lg shadow-lg"/>
         </div>
         <div class="about-content w-full md:w-1/2">
-          <h2 class="section-title text-4xl font-bold mb-4">À Propos de Moi</h2>
+          <h2 class="section-title text-4xl font-bold mb-4">🙋‍♂️À Propos de Moi</h2>
           <p class="section-subtitle text-lg mb-6">Découvrez mon parcours et ma passion pour le développement logiciel</p>
           <p class="about-text mb-4">
             Je suis un étudiant passionné par le développement de logiciels et les technologies web modernes. J'ai acquis une solide expérience dans la conception d'applications web et mobiles.
@@ -971,7 +970,7 @@
     <!-- Skills Section -->
     <section id="skills" class="skills section bg-gray-50">
       <div class="container py-12">
-        <h2 class="section-title text-4xl font-bold text-center mb-4">Mes Compétences</h2>
+        <h2 class="section-title text-4xl font-bold text-center mb-4">🛠️Mes Compétences</h2>
         <p class="section-subtitle text-center mb-8">Les technologies que j'utilise pour créer des applications modernes et performantes</p>
         <div class="skills-container grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="skill-card bg-white p-6 rounded-lg shadow transition hover:-translate-y-2" v-for="skill in skills" :key="skill.id">
@@ -1048,7 +1047,7 @@
     <section id="contact" class="contact section bg-white">
       <div class="container contact-container flex flex-col md:flex-row gap-8 py-12">
         <div class="contact-info w-full md:w-1/2">
-          <h3 class="contact-title text-2xl font-bold mb-4">Informations de Contact</h3>
+          <h3 class="contact-title text-2xl font-bold mb-4">📞Informations de Contact</h3>
           <ul class="contact-list space-y-4">
             <li class="contact-item flex items-center gap-4">
               <div class="contact-icon w-10 h-10 bg-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-map-marker-alt" /></div>
@@ -1253,18 +1252,3 @@ onMounted(() => {
   });
 });
 </script>
-<style>
-.about-photo {
-  width: 280px;   /* tu peux ajuster la taille ici */
-  height: auto;   /* garde les proportions */
-  object-fit: cover; /* ou contain selon ton besoin */
-  max-width: 100%; /* évite de dépasser sur mobile */
-}
-@media (max-width: 768px) {
-  .about-photo {
-    width: 100%;
-    height: auto;
-  }
-}
-
-</style>
