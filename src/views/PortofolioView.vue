@@ -1080,6 +1080,24 @@
       </div>
     </section>
   </div>
+ <footer class="site-footer">
+  <p>© {{ currentYear }} OTOROU SIKIROU</p>
+  <div class="social-links">
+    <a href="#" class="social-link" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="#" class="social-link" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="#" class="social-link" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#" class="social-link" aria-label="Telegram">
+      <i class="fab fa-telegram-plane"></i>
+    </a>
+  </div>
+</footer>
+
 </template>
 
 <script setup>
