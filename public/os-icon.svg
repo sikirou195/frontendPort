@@ -1,0 +1,8 @@
+<!-- public/os-icon.svg -->
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="16" fill="#2980b9"/>
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+        font-size="42" font-family="Segoe UI, sans-serif" fill="#ffffff" font-weight="bold">
+    OS
+  </text>
+</svg>
