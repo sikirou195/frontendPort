@@ -988,7 +988,7 @@
     <!-- Projects Section -->
     <section id="projects" class="projects section bg-white">
       <div class="container py-12">
-        <h2 class="section-title text-4xl font-bold text-center mb-4">Mes Projets web</h2>
+        <h2 class="section-title text-4xl font-bold text-center mb-4"> 🌐Mes Projets web</h2>
         <p class="section-subtitle text-center mb-8">Découvrez mes réalisations et applications développées</p>
         <div class="projects-filter flex justify-center mb-6 space-x-4">
           <button
@@ -1027,7 +1027,7 @@
     <!-- Education Section -->
     <section id="education" class="education section bg-gray-50">
       <div class="container py-12">
-        <h2 class="section-title text-4xl font-bold text-center mb-4">Mon Parcours</h2>
+        <h2 class="section-title text-4xl font-bold text-center mb-4">🎓Mon Parcours</h2>
         <p class="section-subtitle text-center mb-8">Mon parcours académique et professionnel</p>
         <div class="timeline relative">
           <div class="timeline-item mb-8 pl-8 relative" v-for="item in education" :key="item.id">
