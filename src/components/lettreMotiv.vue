@@ -196,7 +196,7 @@
   .document-icon {
     font-size: 1.75rem;
     margin-right: 1rem;
-    background-color: rgba(241, 235, 235, 0.2);
+    background-color: white;
     width: 48px;
     height: 48px;
     border-radius: 50%;
