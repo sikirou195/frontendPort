@@ -118,7 +118,7 @@
 <style scoped>
   .documents-section {
     padding: 4rem 2rem;
-    background-color: #f9fafb;
+    background-color: #f0f2f5;
   }
   
   .documents-container {
@@ -196,7 +196,7 @@
   .document-icon {
     font-size: 1.75rem;
     margin-right: 1rem;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(241, 235, 235, 0.2);
     width: 48px;
     height: 48px;
     border-radius: 50%;
