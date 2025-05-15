@@ -34,9 +34,9 @@ const navItems = ref([
   { id: 'home', text: '🏠Accueil', link: '#home' },
   { id: 'about', text: '🙋‍♂️À Propos', link: '#about' },
   { id: 'skills', text: '🛠️Compétences', link: '#skills' },
-  { id: 'projects', text: 'Projets', link: '#projects' },
-  { id: 'projet', text: 'projet Graphisme', link: '#projet' },
-  { id: 'lettre-motivation-card', text: 'Mon CV et LM', link: '#lettre-motivation-card' },
+  { id: 'projects', text: '🌐Projets', link: '#projects' },
+  { id: 'projet', text: '✨projet Graphisme', link: '#projet' },
+  { id: 'lettre-motivation-card', text: '✍️ / 📝Mon CV et LM', link: '#lettre-motivation-card' },
   { id: 'education', text: '🎓Parcours', link: '#education' },
   { id: 'contact', text: '📞Contact', link: '#contact' }
 ])
