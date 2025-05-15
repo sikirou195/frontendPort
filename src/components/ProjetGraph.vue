@@ -63,7 +63,7 @@ import { ref, onUnmounted } from 'vue'
 // ⚠️ Assure-toi que ces images existent bien dans src/assets/
 import image1 from '@/assets/sikirou1.jpg'
 import image2 from '@/assets/sikirou.jpg'
-import image3 from '@/assets/photoshop3.jpg'
+import image3 from '@/assets/logo.png'
 
 // Données des images
 const images = [
