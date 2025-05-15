@@ -257,7 +257,7 @@
   
   .action-button.download {
     background-color: #f8fafc;
-    color: #334155;
+   
     border: 1px solid #e2e8f0;
   }
   
@@ -315,7 +315,7 @@
   
   .close-button {
     font-size: 1.75rem;
-    color: #64748b;
+    color: #edeff1;
     cursor: pointer;
     line-height: 1;
   }

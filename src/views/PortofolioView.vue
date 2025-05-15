@@ -970,7 +970,7 @@
     <!-- Skills Section -->
     <section id="skills" class="skills section bg-gray-50">
       <div class="container py-12">
-        <h2 class="section-title text-4xl font-bold text-center mb-4">🛠️Mes Compétences</h2>
+        <h2 class="section-title text-4xl font-bold text-center mb-4">🛠️Mes Compétences </h2>
         <p class="section-subtitle text-center mb-8">Les technologies que j'utilise pour créer des applications modernes et performantes</p>
         <div class="skills-container grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="skill-card bg-white p-6 rounded-lg shadow transition hover:-translate-y-2" v-for="skill in skills" :key="skill.id">
@@ -1020,10 +1020,10 @@
     </section>
 <!-- CV & Lettre de Motivation Section -->
 <!-- Section CV et Lettre -->
-
+<section>
 <LettreMotiv/>
 
-
+</section>
     <!-- Education Section -->
     <section id="education" class="education section bg-gray-50">
       <div class="container py-12">
@@ -1122,13 +1122,10 @@ const activeSection = ref('')
 // Compétences
 const skills = ref([
   {
-    title: "HTML, CSS, JavaScript, TypeScript",
+    title: "HTML, CSS, JavaScript, TypeScript,Php",
   },
   {
     title: "Vue.js, NestJS, Laravel",
-  },
-  {
-    title: "PHP",
   },
   {
     title: "MySQL, Prisma ORM",
@@ -1140,6 +1137,9 @@ const skills = ref([
   },
   {
     title: "Git, GitHub, Postman",
+  },
+  {
+    title: "Photoshop,Canvas,Prémier Pro",
   }
 
  ]);

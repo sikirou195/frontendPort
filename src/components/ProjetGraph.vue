@@ -36,9 +36,7 @@
               <button class="action-button view" @click="openModal(image.src, 'Affiche ' + (index + 1))">
                 <span class="button-icon">🔍</span>Voir
               </button>
-              <a :href="image.src" download class="action-button download">
-                <span class="button-icon">⬇️</span>Télécharger
-              </a>
+             
             </div>
           </div>
         </div>
@@ -68,7 +66,7 @@ import image1 from '@/assets/affiche.jpg'
 import image2 from '@/assets/affiche3.jpg'
 import image3 from '@/assets/affiche6.jpg'
 import image4 from '@/assets/affiche2.jpg'
-import image5 from '@/assets/affiche6.jpg'
+import image5 from '@/assets/affiche5.jpg'
 import image6 from '@/assets/affiche7.jpg'
 // Données des images avec titres
 const images = [
