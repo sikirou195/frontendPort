@@ -34,17 +34,17 @@ export default {
         {
           title: 'Affiche publicitaire',
           description: "Création d'une affiche pour un événement culturel.",
-          image: require('@/assets/photoshop1.jpg')
+          image: require('@/assets/sikirou1.jpg')
         },
         {
           title: 'Montage photo',
           description: 'Fusion de plusieurs images pour un effet surréaliste.',
-          image: require('@/assets/photoshop2.jpg')
+          image: require('@/assets/boutique.png')
         },
         {
           title: 'Retouche de portrait',
           description: 'Amélioration des couleurs et retouches de peau.',
-          image: require('@/assets/photoshop3.jpg')
+          image: require('@/assets/sikirou.jpg')
         }
       ]
     };
