@@ -1007,8 +1007,8 @@
               <h3 class="project-title text-xl font-semibold mb-2">{{ project.title }}</h3>
               <p class="project-desc text-sm mb-4">{{ project.description }}</p>
               <div class="project-links flex gap-4">
-                <a :href="project.demoLink" class="project-link flex items-center gap-2"><i class="fas fa-eye"></i> Démo</a>
-                <a :href="project.codeLink" class="project-link flex items-center gap-2"><i class="fas fa-code"></i> Code</a>
+            
+                 <a :href="project.codeLink" class="project-link flex items-center gap-2"><i class="fas fa-code fas fa-eye"></i> <strong>Voir le Site</strong></a>
               </div>
             </div>
           </div>
@@ -1081,7 +1081,7 @@
     </section>
   </div>
  <footer class="site-footer">
-  <p>© {{ currentYear }} OTOROU SIKIROU</p>
+  <p>© {{ currentYear }} <strong>  OTOROU SIKIROU</strong></p>
   <div class="social-links">
     <a href="#" class="social-link" aria-label="GitHub">
       <i class="fab fa-github"></i>
@@ -1202,7 +1202,7 @@ const projects = ref([
     description: "Un site e-commerce simple où seuls les utilisateurs connectés peuvent commander. Redirection automatique vers la connexion ou l’inscription.",
     image: boutiqueImage,
     category: "frontend",
-    demoLink: "#",
+  
     codeLink: "https://frontendpro1-git-master-otorous-projects-4b829183.vercel.app/",
     tags: ["Vue", "auth", "frontend"]
   },
