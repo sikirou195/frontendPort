@@ -1203,7 +1203,7 @@ const projects = ref([
     image: boutiqueImage,
     category: "frontend",
     demoLink: "#",
-    codeLink: "https://github.com/ton-utilisateur/ecommerce-vue-auth",
+    codeLink: "https://frontendpro1-git-master-otorous-projects-4b829183.vercel.app/",
     tags: ["Vue", "auth", "frontend"]
   },
   {
