@@ -1063,11 +1063,12 @@
             </li>
             <li class="contact-item flex items-center gap-4">
               <div class="contact-icon w-10 h-10 bg-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-globe" /></div>
-              
+              <p class="contact-text">www.monsite.com</p>
             </li>
           </ul>
         </div>
         <div class="contact-form w-full md:w-1/2">
+          <h3 class="section-title text-2xl font-bold mb-4"></h3>
           
         </div>
       </div>
@@ -1100,30 +1101,16 @@ import boutiqueImage from '@/assets/boutique.png';
 import Crud2Image from '@/assets/Crud2.png';
 import crud1Image from '@/assets/crud1.png';
 import postesImage from '@/assets/postes.png';
-import axios from 'axios';
+
 import LettreMotiv from '@/components/lettreMotiv.vue';
 import ProjetGraph from '@/components/ProjetGraph.vue';
-import affiche8Image from '@/assets/affiche8.jpg';
-const contactForm = ref({ name: '', email: '', subject: '', message: '' });
+
 
 // Fonction pour envoyer le formulaire de contact à l'API NestJS
-const submitForm = async () => {
-  try {
-    // Envoi des données du formulaire à l'API
-await axios.post('https://victorious-quietude-production.up.railway.app/portofolio', {
-      name: contactForm.value.name,
-      email: contactForm.value.email,
-      sujet: contactForm.value.subject,
-      message: contactForm.value.message
-    });
+
     
     // Vous pouvez ajouter un message de confirmation ou réinitialiser le formulaire après l'envoi réussi
-    console.log("Formulaire envoyé avec succès !");
-  } catch (error) {
-    console.error("Erreur lors de l'envoi du formulaire", error);
-    // Vous pouvez afficher un message d'erreur à l'utilisateur ici
-  }
-};
+ 
 
 const isDarkTheme = ref(false);
 const toggleTheme = () => {
