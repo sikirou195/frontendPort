@@ -2,7 +2,7 @@
   <div class="home">
     <div class="container">
       <img :src="welcomeImage" alt="Bienvenue" class="welcome-img" />
-      <h1 class="title">Portfolio </h1>
+      <h1 class="title">dans mon portfolio </h1>
       <p class="message">Portfolio réalisé avec Nest.js et Vue.js 🎉</p>
       <div class="tech-stack">
         <span class="tech-badge">Vue.js</span>
