@@ -3,10 +3,10 @@
     <div class="container">
       <img :src="welcomeImage" alt="Bienvenue" class="welcome-img" />
       <h1 class="title">dans mon portfolio </h1>
-      <p class="message">Portfolio réalisé avec Nest.js et Vue.js 🎉</p>
+      <p class="message">Portfolio réalisé avec  Vue.js 🎉</p>
       <div class="tech-stack">
         <span class="tech-badge">Vue.js</span>
-        <span class="tech-badge">Nest.js</span>
+        
         <span class="tech-badge">JavaScript</span>
       </div>
       <router-link to="/portofolio" class="btn">Accéder a ma page Portfolio</router-link>
