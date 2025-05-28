@@ -1,7 +1,7 @@
 <template>
   <div v-if="visible" class="popup-overlay" @click.self="closePopup">
     <div class="popup">
-      <button class="close-button" @click="closePopup"></button>
+      <button class="close-button" @click="closePopup">×</button>
       <h2>🙏 Veuillez nous excuser</h2>
       <p>
         Nous rencontrons actuellement des problèmes d'hébergement sur notre portfolio.
@@ -10,13 +10,14 @@
       <p>
         Merci de votre compréhension 💙
       </p>
+      <button class="continue-button" @click="closePopup">Continuer</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "MonMessage.vue",
+  name: "MonMessage",
   data() {
     return {
       visible: false,
@@ -85,6 +86,22 @@ p {
 
 .close-button:hover {
   color: #000;
+}
+
+.continue-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.continue-button:hover {
+  background-color: #0056b3;
 }
 
 @keyframes fadeIn {
