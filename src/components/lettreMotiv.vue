@@ -54,7 +54,7 @@
           <span class="close-button" @click="closeModal">&times;</span>
         </div>
         <div class="modal-body">
-          <iframe v-if="isModalCVOpen" src="/files/cv.pdf" class="modal-iframe" title="CV complet"></iframe>
+          <iframe v-if="isModalCVOpen" src="/files/CV_OTOROU_Sikirou.pdf" class="modal-iframe" title="CV complet"></iframe>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
           <span class="close-button" @click="closeModal">&times;</span>
         </div>
         <div class="modal-body">
-          <iframe v-if="isModalLettreOpen" src="/files/lettre_motivation.pdf" class="modal-iframe" title="Lettre complète"></iframe>
+          <iframe v-if="isModalLettreOpen" src="/files/Lettre_de_Motivation_OTOROU_Sikirou.pdf" class="modal-iframe" title="Lettre complète"></iframe>
         </div>
       </div>
     </div>

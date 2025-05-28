@@ -1063,19 +1063,12 @@
             </li>
             <li class="contact-item flex items-center gap-4">
               <div class="contact-icon w-10 h-10 bg-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-globe" /></div>
-              <p class="contact-text">www.monsite.com</p>
+              
             </li>
           </ul>
         </div>
         <div class="contact-form w-full md:w-1/2">
-          <h3 class="section-title text-2xl font-bold mb-4">Formulaire de Contact</h3>
-          <form @submit.prevent="submitForm" class="space-y-4">
-            <input type="text" v-model="contactForm.name" placeholder="Votre Nom" class="form-control w-full" required />
-            <input type="email" v-model="contactForm.email" placeholder="Votre Email" class="form-control w-full" required />
-            <input type="text" v-model="contactForm.subject" placeholder="Sujet" class="form-control w-full" required />
-            <textarea v-model="contactForm.message" placeholder="Votre Message" class="form-control w-full" required rows="6"></textarea>
-            <button type="submit" class="btn w-full">Envoyer</button>
-          </form>
+          
         </div>
       </div>
     </section>
@@ -1168,13 +1161,13 @@ const activeFilter = ref('all');
 const projects = ref([ 
 {
     id: 1,
-    title: "ESAYCOLLAB",
-    description: "Application web de gestion des tacches collaboratives,c'etais le projet de fin d'etude academique cycle3",
-    image: affiche8Image,
-    category: "fullstack",
+     title: "Crud nest.js et vue.js",
+    description: "Un site e-commerce simple où seuls les utilisateurs connectés peuvent commander. Redirection automatique vers la connexion ou l’inscription.",
+    image: crud1Image,
+    category: "frontend",
     demoLink: "#",
-    codeLink: "https://github.com/ton-utilisateur/dashboard-ecommerce",
-    tags: ["Vue", "NestJS", "Prisma"]
+    codeLink: "https://github.com/ton-utilisateur/ecommerce-vue-auth",
+    tags: ["Vue", "auth", "frontend"]
   },
   {
     id: 2,
@@ -1206,16 +1199,18 @@ const projects = ref([
     codeLink: "https://frontendpro1-git-master-otorous-projects-4b829183.vercel.app/",
     tags: ["Vue", "auth", "frontend"]
   },
+  
   {
     id: 5,
-    title: "Crud nest.js et vue.js",
-    description: "Un site e-commerce simple où seuls les utilisateurs connectés peuvent commander. Redirection automatique vers la connexion ou l’inscription.",
-    image: crud1Image,
-    category: "frontend",
+     title: "Un mini Crud laravel",
+    description: "Un tableau de bord élégant avec gestion des utilisateurs, produits, commandes et paiements. Réalisé avec Vue.js (Composition API), NestJS et Prisma.",
+    image: Crud2Image,
+    category: "fullstack",
     demoLink: "#",
-    codeLink: "https://github.com/ton-utilisateur/ecommerce-vue-auth",
-    tags: ["Vue", "auth", "frontend"]
+    codeLink: "https://github.com/ton-utilisateur/dashboard-ecommerce",
+    tags: ["Vue", "NestJS", "Prisma"]
   }
+
 
 ]);
 const filteredProjects = computed(() =>
