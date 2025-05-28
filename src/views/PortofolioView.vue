@@ -914,8 +914,9 @@
     
   </style>
 <template>
-  <div id="app" :class="['bg-gray-100 text-gray-800', { 'dark-theme': isDarkTheme }]">
   
+  <div id="app" :class="['bg-gray-100 text-gray-800', { 'dark-theme': isDarkTheme }]">
+ 
        <HeaderBar/>
     <!-- Hero Section -->
     <section id="home" class="hero section pt-24">
@@ -1043,7 +1044,7 @@
         </div>
       </div>
     </section>
-
+<MonMessage/>
     <!-- Contact Section -->
     <section id="contact" class="contact section bg-white">
       <div class="container contact-container flex flex-col md:flex-row gap-8 py-12">
@@ -1096,7 +1097,7 @@ import boutiqueImage from '@/assets/boutique.png';
 import Crud2Image from '@/assets/Crud2.png';
 import crud1Image from '@/assets/crud1.png';
 import postesImage from '@/assets/postes.png';
-
+import MonMessage from '@/components/MonMessage.vue';
 import LettreMotiv from '@/components/lettreMotiv.vue';
 import ProjetGraph from '@/components/ProjetGraph.vue';
 
@@ -1129,7 +1130,7 @@ const skills = ref([
     
   },
   {
-    title: "Git, GitHub, Postman",
+    title: "Gitlab, GitHub",
   },
   {
     title: "Photoshop,Canvas,Prémier Pro",
