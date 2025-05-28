@@ -20,11 +20,11 @@
               <h3>Curriculum Vitae</h3>
             </div>
             <div class="document-preview">
-              <iframe src="/files/cv.pdf" class="preview-frame" title="CV"></iframe>
+              <iframe src="/files/CV_OTOROU_Sikirou.pdf" class="preview-frame" title="CV"></iframe>
             </div>
             <div class="document-actions">
               <button class="action-button view" @click="openCVModal">Voir en plein écran</button>
-              <a href="/files/cv.pdf" download class="action-button download">Télécharger</a>
+              <a href="/files/CV_OTOROU_Sikirou.pdf" download class="action-button download">Télécharger</a>
             </div>
           </div>
   
@@ -35,11 +35,11 @@
               <h3>Lettre de Motivation</h3>
             </div>
             <div class="document-preview">
-              <iframe src="/files/lettre_motivation.pdf" class="preview-frame" title="Lettre de motivation"></iframe>
+              <iframe src="/files/Lettre_de_Motivation_OTOROU_Sikirou.pdf" class="preview-frame" title="Lettre de motivation"></iframe>
             </div>
             <div class="document-actions">
               <button class="action-button view" @click="openLettreModal">Voir en plein écran</button>
-              <a href="/files/lettre_motivation.pdf" download class="action-button download">Télécharger</a>
+              <a href="/files/Lettre_de_Motivation_OTOROU_Sikirou.pdf" download class="action-button download">Télécharger</a>
             </div>
           </div>
         </div>
