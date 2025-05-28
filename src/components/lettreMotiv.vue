@@ -35,11 +35,11 @@
               <h3>Lettre de Motivation</h3>
             </div>
             <div class="document-preview">
-              <iframe src="/files/LM_OTOROU_Sikirou.pdf" class="preview-frame" title="Lettre de motivation"></iframe>
+              <iframe src="/files/lettre_motivation.pdf" class="preview-frame" title="Lettre de motivation"></iframe>
             </div>
             <div class="document-actions">
               <button class="action-button view" @click="openLettreModal">Voir en plein écran</button>
-              <a href="/files/LM_OTOROU_Sikirou.pdf" download class="action-button download">Télécharger</a>
+              <a href="/files/lettre_motivation.pdf" download class="action-button download">Télécharger</a>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
           <span class="close-button" @click="closeModal">&times;</span>
         </div>
         <div class="modal-body">
-          <iframe v-if="isModalLettreOpen" src="/files/LM_OTOROU_Sikirou.pdf" class="modal-iframe" title="Lettre complète"></iframe>
+          <iframe v-if="isModalLettreOpen" src="/files/lettre_motivation.pdf" class="modal-iframe" title="Lettre complète"></iframe>
         </div>
       </div>
     </div>
