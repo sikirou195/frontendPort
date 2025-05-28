@@ -644,6 +644,7 @@
     /* Contact Section */
     .contact {
       background-color: white;
+      margin-left: 460px;
     }
 
     .contact-container {
@@ -1063,14 +1064,11 @@
             </li>
             <li class="contact-item flex items-center gap-4">
               <div class="contact-icon w-10 h-10 bg-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-globe" /></div>
-              <p class="contact-text">www.monsite.com</p>
+              <p class="contact-text">Whatsapp:+229 67 77 97 71</p>
             </li>
           </ul>
         </div>
-        <div class="contact-form w-full md:w-1/2">
-          <h3 class="section-title text-2xl font-bold mb-4"></h3>
-          
-        </div>
+       
       </div>
     </section>
   </div>
@@ -1080,10 +1078,7 @@
     <a href="#" class="social-link" aria-label="GitHub">
       <i class="fab fa-github"></i>
     </a>
-    <a href="#" class="social-link" aria-label="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="#" class="social-link" aria-label="Twitter">
+    <a href="#" class="social-link" aria-label="facebook">
       <i class="fab fa-twitter"></i>
     </a>
     <a href="#" class="social-link" aria-label="Telegram">
