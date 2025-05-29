@@ -644,7 +644,7 @@
     /* Contact Section */
     .contact {
       background-color: white;
-      margin-left: 460px;
+    
     }
 
     .contact-container {
@@ -919,54 +919,13 @@
  
        <HeaderBar/>
     <!-- Hero Section -->
-    <section id="home" class="hero section pt-24">
-      <div class="container hero-container flex justify-between items-center">
-        <div class="hero-content max-w-lg">
-          <router-link to="/contactlist" class="btn-retour" >  <h1 class="hero-title text-5xl font-bold mb-4">
-            Développeur <span class="text-primary">Passionné</span>
-          </h1> </router-link>
-          <p class="hero-subtitle text-lg mb-6">
-            Étudiant en informatique aspirant à une Licence3 en Génie Logiciel, je conçois des solutions web innovantes et performantes.
-          </p>
-        </div>
-        <div class="theme-switcher cursor-pointer" @click="toggleTheme">
-          <i class="fas text-2xl" :class="isDarkTheme ? 'fa-sun' : 'fa-moon'" />
-        </div>
-      </div>
+    <section  id="home" class="hero section pt-24" >
+      <MonEntete/>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about section bg-white">
-      <div class="container about-container flex flex-col md:flex-row items-center gap-8 py-12">
-        <div class="about-img w-full md:w-1/2">
-          <p> <strong><h3> OTOROU Sikirou</h3> </strong></p>
-          <img src="@/assets/sikirou1.jpg" alt="Mon portrait" class="rounded-lg shadow-lg"/>
-        </div>
-        <div class="about-content w-full md:w-1/2">
-          <h2 class="section-title text-4xl font-bold mb-4">🙋‍♂️À Propos de Moi</h2>
-          <p class="section-subtitle text-lg mb-6">Découvrez mon parcours et ma passion pour le développement logiciel</p>
-          <p class="about-text mb-4">
-            Je suis un étudiant passionné par le développement de logiciels et les technologies web modernes. J'ai acquis une solide expérience dans la conception d'applications web et mobiles.
-          </p>
-    <p class="about-text mb-6">
-       Mon objectif est de poursuivre mes études en Licence3 Génie Logiciel afin d'approfondir mes connaissances et devenir un développeur d'exception.
-      </p>
-          <div class="about-stats flex gap-6">
-            <div class="stat-item text-center">
-              <h4 class="stat-number text-3xl font-bold text-primary">10+</h4>
-              <p class="stat-text">Projets réalisés</p>
-            </div>
-            <div class="stat-item text-center">
-              <h4 class="stat-number text-3xl font-bold text-primary">5+</h4>
-              <p class="stat-text">Technologies maîtrisées</p>
-            </div>
-            <div class="stat-item text-center">
-              <h4 class="stat-number text-3xl font-bold text-primary">3</h4>
-              <p class="stat-text">Années d'expérience</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section  id="about" class="about section bg-white">
+     <MonApropos/>
     </section>
 
     <!-- Skills Section -->
@@ -1046,31 +1005,8 @@
     </section>
 <MonMessage/>
     <!-- Contact Section -->
-    <section id="contact" class="contact section bg-white">
-      <div class="container contact-container flex flex-col md:flex-row gap-8 py-12">
-        <div class="contact-info w-full md:w-1/2">
-          <h3 class="contact-title text-2xl font-bold mb-4">📞Informations de Contact</h3>
-          <ul class="contact-list space-y-4">
-            <li class="contact-item flex items-center gap-4">
-              <div class="contact-icon w-10 h-10 bg-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-map-marker-alt" /></div>
-              <p class="contact-text">Abomey Calavi, Bénin</p>
-            </li>
-            <li class="contact-item flex items-center gap-4">
-              <div class="contact-icon w-10 h-10 bg-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-envelope" /></div>
-              <p class="contact-text">sikirou195@gmail.com</p>
-            </li>
-            <li class="contact-item flex items-center gap-4">
-              <div class="contact-icon w-10 h-10 bg-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-phone" /></div>
-              <p class="contact-text">+229 01 67 77 97 71</p>
-            </li>
-            <li class="contact-item flex items-center gap-4">
-              <div class="contact-icon w-10 h-10 bg-primary text-white flex items-center justify-center rounded-full"><i class="fas fa-globe" /></div>
-              <p class="contact-text">Whatsapp:+229 67 77 97 71</p>
-            </li>
-          </ul>
-        </div>
-       
-      </div>
+    <section id="contact" class="contact section bg-white" >
+  <MonContact/>
     </section>
   </div>
  <footer class="site-footer">
@@ -1100,8 +1036,9 @@ import postesImage from '@/assets/postes.png';
 import MonMessage from '@/components/MonMessage.vue';
 import LettreMotiv from '@/components/lettreMotiv.vue';
 import ProjetGraph from '@/components/ProjetGraph.vue';
-
-
+import MonContact from '@/components/MonContact.vue';
+import MonEntete from '@/components/MonEntete.vue';
+import MonApropos from '@/components/MonApropos.vue';
 // Fonction pour envoyer le formulaire de contact à l'API NestJS
 
     
@@ -1109,9 +1046,7 @@ import ProjetGraph from '@/components/ProjetGraph.vue';
  
 
 const isDarkTheme = ref(false);
-const toggleTheme = () => {
-  isDarkTheme.value = !isDarkTheme.value;
-};
+
 const activeSection = ref('')
 // Compétences
 const skills = ref([

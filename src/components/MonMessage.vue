@@ -2,9 +2,9 @@
   <div v-if="visible" class="popup-overlay" @click.self="closePopup">
     <div class="popup">
       <button class="close-button" @click="closePopup">×</button>
-      <h2>🙏 Veuillez nous excuser</h2>
+      <h2>🙏 Veuillez  m'excuser</h2>
       <p>
-        Nous rencontrons actuellement des problèmes d'hébergement sur notre portfolio.
+        Je rencontrons actuellement des problèmes d'hébergement coté serveur sur mon portfolio.
         Certaines fonctionnalités pourraient ne pas être disponibles momentanément.
       </p>
       <p>
