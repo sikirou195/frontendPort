@@ -1057,7 +1057,7 @@ const skills = ref([
     title: "Vue.js, NestJS, Laravel",
   },
   {
-    title: "MySQL, Prisma ORM",
+    title: "MySQL, Prisma ORM,Postgress",
     
   },
   {
