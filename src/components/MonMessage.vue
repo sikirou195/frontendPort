@@ -4,7 +4,7 @@
       <button class="close-button" @click="closePopup">×</button>
       <h2>🙏 Veuillez  m'excuser</h2>
       <p>
-        Je rencontrons actuellement des problèmes d'hébergement coté serveur sur mon portfolio.
+        Je rencontres actuellement des problèmes d'hébergement coté serveur sur mon portfolio.
         Certaines fonctionnalités pourraient ne pas être disponibles momentanément.
       </p>
       <p>
