@@ -9,7 +9,7 @@
         </li>
         <li class="contact-item">
           <div class="icon"><i class="fas fa-envelope"></i></div>
-          <span>sikirou195@gmail.com</span>
+      <span> <a href="https://mailto:sikirou195@gmail.com" >sikirou195@gmail.com</a></span>
         </li>
         <li class="contact-item">
           <div class="icon"><i class="fas fa-phone"></i></div>
@@ -17,7 +17,7 @@
         </li>
         <li class="contact-item">
           <div class="icon"><i class="fas fa-globe"></i></div>
-          <span>Whatsapp: +229 67 77 97 71</span>
+         <a href="https://wa.me/22967779771" target="_blank"><span>Whatsapp: +229 67 77 97 71</span></a>
         </li>
       </ul>
     </div>
