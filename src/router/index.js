@@ -5,8 +5,8 @@ import PortofolioView from '@/views/PortofolioView.vue';
 
 const routes = [
  
-  { path: '/',   name: 'Home', component: HomeView  },
-  { path: '/portofolio',   name: 'Portofolio', component: PortofolioView},
+  { path: '/home',   name: 'Home', component: HomeView  },
+  { path: '/',   name: 'Portofolio', component: PortofolioView},
   { path: '/contactlist',   name: 'ContactList', component: ContactListView},
 ];
 
